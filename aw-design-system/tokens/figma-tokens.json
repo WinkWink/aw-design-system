@@ -1,0 +1,52 @@
+{
+  "color": {
+    "gray": {
+      "50": { "$value": "#f9fafb", "$type": "color" },
+      "100": { "$value": "#f3f4f6", "$type": "color" },
+      "200": { "$value": "#e5e7eb", "$type": "color" },
+      "500": { "$value": "#6b7280", "$type": "color" },
+      "700": { "$value": "#374151", "$type": "color" },
+      "900": { "$value": "#111827", "$type": "color" },
+      "white": { "$value": "#ffffff", "$type": "color" }
+    },
+    "pink": {
+      "100": { "$value": "#fce7f3", "$type": "color" },
+      "300": { "$value": "#f9a8d4", "$type": "color" },
+      "500": { "$value": "#ec4899", "$type": "color" },
+      "700": { "$value": "#9d174d", "$type": "color" }
+    },
+    "background": {
+      "default": { "$value": "#f9fafb", "$type": "color" }
+    },
+    "surface": {
+      "default": { "$value": "#ffffff", "$type": "color" }
+    },
+    "text": {
+      "default": { "$value": "#111827", "$type": "color" },
+      "subtle": { "$value": "#6b7280", "$type": "color" }
+    },
+    "border": {
+      "default": { "$value": "#e5e7eb", "$type": "color" }
+    },
+    "action": {
+      "primary": { "$value": "{color.pink.500}", "$type": "color" },
+      "primary-hover": { "$value": "{color.pink.700}", "$type": "color" }
+    },
+    "focus": {
+      "ring": { "$value": "#3b82f6", "$type": "color" }
+    }
+  },
+  "space": {
+    "8": { "$value": "8px", "$type": "dimension" },
+    "12": { "$value": "12px", "$type": "dimension" },
+    "16": { "$value": "16px", "$type": "dimension" },
+    "20": { "$value": "20px", "$type": "dimension" },
+    "24": { "$value": "24px", "$type": "dimension" }
+  },
+  "radius": {
+    "xsm": { "$value": "2px", "$type": "dimension" },
+    "sm": { "$value": "4px", "$type": "dimension" },
+    "md": { "$value": "8px", "$type": "dimension" },
+    "lg": { "$value": "12px", "$type": "dimension" }
+  }
+}
