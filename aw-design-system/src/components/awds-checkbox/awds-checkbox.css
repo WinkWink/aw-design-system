@@ -1,0 +1,73 @@
+:host {
+  display: inline-block;
+
+  --awds-checkbox-size: 20px;
+  --awds-checkbox-border-radius: var(--radius-sm, 4px);
+  --awds-checkbox-border-color: var(--border-default, #e5e7eb);
+  --awds-checkbox-background: var(--surface-default, #ffffff);
+  --awds-checkbox-checked-background: var(--action-primary, #ec4899);
+  --awds-checkbox-checked-border-color: var(--action-primary, #ec4899);
+  --awds-checkbox-icon-color: var(--surface-default, #ffffff);
+  --awds-checkbox-text-color: var(--text-default, #111827);
+  --awds-checkbox-focus-ring-color: var(--focus-ring, #3b82f6);
+  --awds-checkbox-gap: var(--space-8, 8px);
+  --awds-checkbox-disabled-opacity: 0.5;
+}
+
+.checkbox {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--awds-checkbox-gap);
+  color: var(--awds-checkbox-text-color);
+  font-family: system-ui, sans-serif;
+  font-size: 1rem;
+  cursor: pointer;
+}
+
+.checkbox__input {
+  position: absolute;
+  opacity: 0;
+  pointer-events: none;
+}
+
+.checkbox__control {
+  box-sizing: border-box;
+  width: var(--awds-checkbox-size);
+  height: var(--awds-checkbox-size);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--awds-checkbox-background);
+  border: 1px solid var(--awds-checkbox-border-color);
+  border-radius: var(--awds-checkbox-border-radius);
+  transition: background-color 150ms ease, border-color 150ms ease, box-shadow 150ms ease;
+}
+
+.checkbox__icon {
+  width: 14px;
+  height: 14px;
+  fill: var(--awds-checkbox-icon-color);
+  opacity: 0;
+  transform: scale(0.8);
+  transition: opacity 150ms ease, transform 150ms ease;
+}
+
+.checkbox__input:checked + .checkbox__control {
+  background: var(--awds-checkbox-checked-background);
+  border-color: var(--awds-checkbox-checked-border-color);
+}
+
+.checkbox__input:checked + .checkbox__control .checkbox__icon {
+  opacity: 1;
+  transform: scale(1);
+}
+
+.checkbox__input:focus-visible + .checkbox__control {
+  outline: 3px solid var(--awds-checkbox-focus-ring-color);
+  outline-offset: 2px;
+}
+
+:host([disabled]) .checkbox {
+  cursor: not-allowed;
+  opacity: var(--awds-checkbox-disabled-opacity);
+}

@@ -1,0 +1,33 @@
+import { Meta, Canvas, Controls } from '@storybook/addon-docs/blocks';
+import * as CheckboxStories from './awds-checkbox.stories';
+
+<Meta of={CheckboxStories} />
+
+# Checkbox
+
+The `awds-checkbox` component is a token-driven form control.
+
+## Token usage
+
+This component consumes Figma-exported CSS variables:
+
+- `--action-primary`
+- `--surface-default`
+- `--border-default`
+- `--text-default`
+- `--focus-ring`
+- `--space-8`
+- `--radius-sm`
+
+## Example
+
+<Canvas of={CheckboxStories.Default} />
+
+## States
+
+<Canvas of={CheckboxStories.Checked} />
+<Canvas of={CheckboxStories.Disabled} />
+
+## Controls
+
+<Controls of={CheckboxStories.Default} />

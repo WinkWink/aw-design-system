@@ -1,7 +1,8 @@
+import { html } from 'lit';
 import type { Meta, StoryObj } from '@storybook/web-components';
 
 const meta: Meta = {
-  title: 'Components/Button',
+  title: 'AWDS/Button',
   component: 'awds-button',
   argTypes: {
     variant: {
@@ -28,19 +29,11 @@ export const Primary: Story = {
     size: 'md',
     disabled: false,
   },
-  render: args => `
-    <awds-button
-      variant="${args.variant}"
-      size="${args.size}"
-      ${args.disabled ? 'disabled' : ''}
-    >
-      Button
-    </awds-button>
-  `,
+  render: args => html` <awds-button variant=${args.variant} size=${args.size} ?disabled=${args.disabled}> Button </awds-button> `,
 };
 
 export const Variants: Story = {
-  render: () => `
+  render: () => html`
     <div style="display:flex; gap:1rem; align-items:center;">
       <awds-button variant="primary">Primary</awds-button>
       <awds-button variant="secondary">Secondary</awds-button>
@@ -50,7 +43,7 @@ export const Variants: Story = {
 };
 
 export const Sizes: Story = {
-  render: () => `
+  render: () => html`
     <div style="display:flex; gap:1rem; align-items:center;">
       <awds-button size="sm">Small</awds-button>
       <awds-button size="md">Medium</awds-button>
@@ -60,7 +53,5 @@ export const Sizes: Story = {
 };
 
 export const Disabled: Story = {
-  render: () => `
-    <awds-button disabled>Disabled</awds-button>
-  `,
+  render: () => html` <awds-button disabled>Disabled</awds-button> `,
 };

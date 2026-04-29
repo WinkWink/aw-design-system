@@ -6,6 +6,19 @@
  */
 import { HTMLStencilElement, JSXBase } from "@stencil/core/internal";
 export namespace Components {
+    interface AwdsAccordion {
+    }
+    interface AwdsAccordionItem {
+        /**
+          * Heading text
+         */
+        "heading": string;
+        /**
+          * Open state
+          * @default false
+         */
+        "open": boolean;
+    }
     interface AwdsButton {
         /**
           * Disabled state
@@ -28,6 +41,31 @@ export namespace Components {
          */
         "variant": 'primary' | 'secondary' | 'tertiary';
     }
+    interface AwdsCheckbox {
+        /**
+          * Checked state
+          * @default false
+         */
+        "checked": boolean;
+        /**
+          * Disabled state
+          * @default false
+         */
+        "disabled": boolean;
+        /**
+          * Visible label
+         */
+        "label"?: string;
+        /**
+          * Checkbox name for forms
+         */
+        "name"?: string;
+        /**
+          * Checkbox value
+          * @default 'on'
+         */
+        "value": string;
+    }
     interface MyComponent {
         /**
           * The first name
@@ -44,11 +82,29 @@ export namespace Components {
     }
 }
 declare global {
+    interface HTMLAwdsAccordionElement extends Components.AwdsAccordion, HTMLStencilElement {
+    }
+    var HTMLAwdsAccordionElement: {
+        prototype: HTMLAwdsAccordionElement;
+        new (): HTMLAwdsAccordionElement;
+    };
+    interface HTMLAwdsAccordionItemElement extends Components.AwdsAccordionItem, HTMLStencilElement {
+    }
+    var HTMLAwdsAccordionItemElement: {
+        prototype: HTMLAwdsAccordionItemElement;
+        new (): HTMLAwdsAccordionItemElement;
+    };
     interface HTMLAwdsButtonElement extends Components.AwdsButton, HTMLStencilElement {
     }
     var HTMLAwdsButtonElement: {
         prototype: HTMLAwdsButtonElement;
         new (): HTMLAwdsButtonElement;
+    };
+    interface HTMLAwdsCheckboxElement extends Components.AwdsCheckbox, HTMLStencilElement {
+    }
+    var HTMLAwdsCheckboxElement: {
+        prototype: HTMLAwdsCheckboxElement;
+        new (): HTMLAwdsCheckboxElement;
     };
     interface HTMLMyComponentElement extends Components.MyComponent, HTMLStencilElement {
     }
@@ -57,11 +113,29 @@ declare global {
         new (): HTMLMyComponentElement;
     };
     interface HTMLElementTagNameMap {
+        "awds-accordion": HTMLAwdsAccordionElement;
+        "awds-accordion-item": HTMLAwdsAccordionItemElement;
         "awds-button": HTMLAwdsButtonElement;
+        "awds-checkbox": HTMLAwdsCheckboxElement;
         "my-component": HTMLMyComponentElement;
     }
 }
 declare namespace LocalJSX {
+    type OneOf<K extends string, PropT, AttrT = PropT> = { [P in K]: PropT } & { [P in `attr:${K}` | `prop:${K}`]?: never } | { [P in `attr:${K}`]: AttrT } & { [P in K | `prop:${K}`]?: never } | { [P in `prop:${K}`]: PropT } & { [P in K | `attr:${K}`]?: never };
+
+    interface AwdsAccordion {
+    }
+    interface AwdsAccordionItem {
+        /**
+          * Heading text
+         */
+        "heading": string;
+        /**
+          * Open state
+          * @default false
+         */
+        "open"?: boolean;
+    }
     interface AwdsButton {
         /**
           * Disabled state
@@ -84,6 +158,31 @@ declare namespace LocalJSX {
          */
         "variant"?: 'primary' | 'secondary' | 'tertiary';
     }
+    interface AwdsCheckbox {
+        /**
+          * Checked state
+          * @default false
+         */
+        "checked"?: boolean;
+        /**
+          * Disabled state
+          * @default false
+         */
+        "disabled"?: boolean;
+        /**
+          * Visible label
+         */
+        "label"?: string;
+        /**
+          * Checkbox name for forms
+         */
+        "name"?: string;
+        /**
+          * Checkbox value
+          * @default 'on'
+         */
+        "value"?: string;
+    }
     interface MyComponent {
         /**
           * The first name
@@ -99,11 +198,22 @@ declare namespace LocalJSX {
         "middle"?: string;
     }
 
+    interface AwdsAccordionItemAttributes {
+        "heading": string;
+        "open": boolean;
+    }
     interface AwdsButtonAttributes {
         "variant": 'primary' | 'secondary' | 'tertiary';
         "size": 'sm' | 'md' | 'lg';
         "disabled": boolean;
         "type": 'button' | 'submit' | 'reset';
+    }
+    interface AwdsCheckboxAttributes {
+        "name": string;
+        "value": string;
+        "label": string;
+        "checked": boolean;
+        "disabled": boolean;
     }
     interface MyComponentAttributes {
         "first": string;
@@ -112,7 +222,10 @@ declare namespace LocalJSX {
     }
 
     interface IntrinsicElements {
+        "awds-accordion": AwdsAccordion;
+        "awds-accordion-item": Omit<AwdsAccordionItem, keyof AwdsAccordionItemAttributes> & { [K in keyof AwdsAccordionItem & keyof AwdsAccordionItemAttributes]?: AwdsAccordionItem[K] } & { [K in keyof AwdsAccordionItem & keyof AwdsAccordionItemAttributes as `attr:${K}`]?: AwdsAccordionItemAttributes[K] } & { [K in keyof AwdsAccordionItem & keyof AwdsAccordionItemAttributes as `prop:${K}`]?: AwdsAccordionItem[K] } & OneOf<"heading", AwdsAccordionItem["heading"], AwdsAccordionItemAttributes["heading"]>;
         "awds-button": Omit<AwdsButton, keyof AwdsButtonAttributes> & { [K in keyof AwdsButton & keyof AwdsButtonAttributes]?: AwdsButton[K] } & { [K in keyof AwdsButton & keyof AwdsButtonAttributes as `attr:${K}`]?: AwdsButtonAttributes[K] } & { [K in keyof AwdsButton & keyof AwdsButtonAttributes as `prop:${K}`]?: AwdsButton[K] };
+        "awds-checkbox": Omit<AwdsCheckbox, keyof AwdsCheckboxAttributes> & { [K in keyof AwdsCheckbox & keyof AwdsCheckboxAttributes]?: AwdsCheckbox[K] } & { [K in keyof AwdsCheckbox & keyof AwdsCheckboxAttributes as `attr:${K}`]?: AwdsCheckboxAttributes[K] } & { [K in keyof AwdsCheckbox & keyof AwdsCheckboxAttributes as `prop:${K}`]?: AwdsCheckbox[K] };
         "my-component": Omit<MyComponent, keyof MyComponentAttributes> & { [K in keyof MyComponent & keyof MyComponentAttributes]?: MyComponent[K] } & { [K in keyof MyComponent & keyof MyComponentAttributes as `attr:${K}`]?: MyComponentAttributes[K] } & { [K in keyof MyComponent & keyof MyComponentAttributes as `prop:${K}`]?: MyComponent[K] };
     }
 }
@@ -120,7 +233,10 @@ export { LocalJSX as JSX };
 declare module "@stencil/core" {
     export namespace JSX {
         interface IntrinsicElements {
+            "awds-accordion": LocalJSX.IntrinsicElements["awds-accordion"] & JSXBase.HTMLAttributes<HTMLAwdsAccordionElement>;
+            "awds-accordion-item": LocalJSX.IntrinsicElements["awds-accordion-item"] & JSXBase.HTMLAttributes<HTMLAwdsAccordionItemElement>;
             "awds-button": LocalJSX.IntrinsicElements["awds-button"] & JSXBase.HTMLAttributes<HTMLAwdsButtonElement>;
+            "awds-checkbox": LocalJSX.IntrinsicElements["awds-checkbox"] & JSXBase.HTMLAttributes<HTMLAwdsCheckboxElement>;
             "my-component": LocalJSX.IntrinsicElements["my-component"] & JSXBase.HTMLAttributes<HTMLMyComponentElement>;
         }
     }

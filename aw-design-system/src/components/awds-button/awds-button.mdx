@@ -1,0 +1,36 @@
+import { Meta, Canvas, Controls } from '@storybook/addon-docs/blocks';
+import * as ButtonStories from './awds-button.stories';
+
+<Meta of={ButtonStories} />
+
+# Button
+
+The `awds-button` component is a token-driven button built with Stencil.
+
+## Token usage
+
+This component consumes Figma-exported CSS variables:
+
+- `--action-primary`
+- `--action-primary-hover`
+- `--surface-default`
+- `--focus-ring`
+- `--space-12`
+- `--space-16`
+- `--radius-md`
+
+## Example
+
+<Canvas of={ButtonStories.Primary} />
+
+## Variants
+
+<Canvas of={ButtonStories.Variants} />
+
+## Sizes
+
+<Canvas of={ButtonStories.Sizes} />
+
+## Controls
+
+<Controls of={ButtonStories.Primary} />

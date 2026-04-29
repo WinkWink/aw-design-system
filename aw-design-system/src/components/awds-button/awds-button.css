@@ -5,55 +5,61 @@
   --awds-button-font-size: 1rem;
   --awds-button-font-weight: 600;
 
-  --awds-button-padding-block: 0.75rem;
-  --awds-button-padding-inline: 1rem;
-  --awds-button-border-radius: 0.5rem;
+  --awds-button-padding-block: var(--space-12, 12px);
+  --awds-button-padding-inline: var(--space-16, 16px);
+  --awds-button-border-radius: var(--radius-md, 8px);
 
-  --awds-button-color: #ffffff;
-  --awds-button-background: #111827;
-  --awds-button-border-color: #111827;
+  --awds-button-color: var(--surface-default, #ffffff);
+  --awds-button-background: var(--action-primary, #ec4899);
+  --awds-button-border-color: var(--action-primary, #ec4899);
+  --awds-button-hover-background: var(--action-primary-hover, #9d174d);
 
-  --awds-button-hover-background: #374151;
-
-  --awds-button-focus-ring-color: #2563eb;
+  --awds-button-focus-ring-color: var(--focus-ring, #3b82f6);
   --awds-button-disabled-opacity: 0.5;
 }
 
 /* sizes */
 :host([size='sm']) {
   --awds-button-font-size: 0.875rem;
-  --awds-button-padding-block: 0.5rem;
-  --awds-button-padding-inline: 0.75rem;
+  --awds-button-padding-block: var(--space-8, 8px);
+  --awds-button-padding-inline: var(--space-12, 12px);
 }
 
 :host([size='lg']) {
   --awds-button-font-size: 1.125rem;
-  --awds-button-padding-block: 1rem;
-  --awds-button-padding-inline: 1.25rem;
+  --awds-button-padding-block: var(--space-16, 16px);
+  --awds-button-padding-inline: var(--space-20, 20px);
 }
 
 /* variants */
 :host([variant='secondary']) {
-  --awds-button-color: #111827;
-  --awds-button-background: #ffffff;
-  --awds-button-border-color: #111827;
+  --awds-button-color: var(--text-default, #111827);
+  --awds-button-background: var(--surface-default, #ffffff);
+  --awds-button-border-color: var(--border-default, #e5e7eb);
+  --awds-button-hover-background: var(--gray-50, #f9fafb);
 }
 
 :host([variant='tertiary']) {
-  --awds-button-color: #111827;
+  --awds-button-color: var(--action-primary, #ec4899);
   --awds-button-background: transparent;
   --awds-button-border-color: transparent;
+  --awds-button-hover-background: var(--pink-100, #fce7f3);
 }
 
 /* button */
 .awds-button {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
   display: inline-flex;
   align-items: center;
   justify-content: center;
+  gap: var(--space-8, 8px);
 
   font-family: var(--awds-button-font-family);
   font-size: var(--awds-button-font-size);
   font-weight: var(--awds-button-font-weight);
+  line-height: 1;
 
   color: var(--awds-button-color);
   background: var(--awds-button-background);
@@ -63,9 +69,10 @@
   padding: var(--awds-button-padding-block) var(--awds-button-padding-inline);
 
   cursor: pointer;
+  transition: background-color 150ms ease, border-color 150ms ease, color 150ms ease, opacity 150ms ease;
 }
 
-.awds-button:hover {
+.awds-button:hover:not(:disabled) {
   background: var(--awds-button-hover-background);
 }
 
