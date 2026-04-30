@@ -38,7 +38,7 @@
     "test:watch": "stencil-test --watch",
     "generate": "stencil generate",
     "storybook": "storybook dev -p 6006",
-    "build-storybook": "storybook build",
+    "build-storybook": "stencil build && storybook build",
     "tokens": "node scripts/build-tokens.js"
   },
   "devDependencies": {
