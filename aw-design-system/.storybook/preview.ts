@@ -2,7 +2,7 @@ import '../src/styles/tokens.css';
 import { setAssetPath } from '@stencil/core';
 import { defineCustomElements } from '../loader';
 
-setAssetPath(`${document.baseURI}dist/`);
+setAssetPath(`${document.baseURI}assets/`);
 defineCustomElements();
 
 const fontLink = document.createElement('link');
