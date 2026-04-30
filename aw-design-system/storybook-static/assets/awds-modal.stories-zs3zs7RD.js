@@ -1,4 +1,4 @@
-import{n as e,r as t}from"./chunk-DnJy8xQt.js";import{B as n,z as r}from"./iframe-C9zXsM_-.js";var i=t({Primary:()=>o,__namedExportsOrder:()=>s,default:()=>a}),a,o,s,c=e((()=>{r(),a={title:`AWDS/Modal`,component:`awds-modal`,argTypes:{open:{control:`boolean`},size:{control:`select`,options:[`sm`,`md`,`lg`]},heading:{control:`text`}}},o={args:{open:!1,size:`md`,heading:`Modal title`},render:e=>n`
+import{n as e,r as t}from"./chunk-DnJy8xQt.js";import{B as n,z as r}from"./iframe-D7r0Uamx.js";var i=t({Primary:()=>o,__namedExportsOrder:()=>s,default:()=>a}),a,o,s,c=e((()=>{r(),a={title:`AWDS/Modal`,component:`awds-modal`,argTypes:{open:{control:`boolean`},size:{control:`select`,options:[`sm`,`md`,`lg`]},heading:{control:`text`}}},o={args:{open:!1,size:`md`,heading:`Modal title`},render:e=>n`
     <awds-button
       variant="primary"
       @click=${()=>{document.querySelector(`awds-modal`)?.setAttribute(`open`,``)}}

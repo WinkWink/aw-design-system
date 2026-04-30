@@ -1,9 +1,10 @@
 import '../src/styles/tokens.css';
-import { setAssetPath } from '@stencil/core';
-import { defineCustomElements } from '../loader';
 
-setAssetPath(`${document.baseURI}assets/`);
-defineCustomElements();
+import '../dist/components/awds-button.js';
+import '../dist/components/awds-checkbox.js';
+import '../dist/components/awds-accordion.js';
+import '../dist/components/awds-accordion-item.js';
+import '../dist/components/awds-modal.js';
 
 const fontLink = document.createElement('link');
 fontLink.href = 'https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap';

@@ -1,4 +1,4 @@
-import{n as e,r as t}from"./chunk-DnJy8xQt.js";import{B as n,z as r}from"./iframe-C9zXsM_-.js";var i=t({MultipleOpen:()=>s,Primary:()=>o,WithLongContent:()=>c,__namedExportsOrder:()=>l,default:()=>a}),a,o,s,c,l,u=e((()=>{r(),a={title:`AWDS/Accordion`,component:`awds-accordion`,argTypes:{multiple:{control:`boolean`}}},o={args:{multiple:!1},render:e=>n`
+import{n as e,r as t}from"./chunk-DnJy8xQt.js";import{B as n,z as r}from"./iframe-D7r0Uamx.js";var i=t({MultipleOpen:()=>s,Primary:()=>o,WithLongContent:()=>c,__namedExportsOrder:()=>l,default:()=>a}),a,o,s,c,l,u=e((()=>{r(),a={title:`AWDS/Accordion`,component:`awds-accordion`,argTypes:{multiple:{control:`boolean`}}},o={args:{multiple:!1},render:e=>n`
     <awds-accordion ?multiple=${e.multiple}>
       <awds-accordion-item heading="Accordion item one"> Content for accordion item one. </awds-accordion-item>
 
