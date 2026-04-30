@@ -2,7 +2,8 @@ import '../src/styles/tokens.css';
 import { setAssetPath } from '@stencil/core';
 import { defineCustomElements } from '../loader';
 
-setAssetPath(document.baseURI);
+setAssetPath(`${document.baseURI}dist/`);
+defineCustomElements();
 
 const fontLink = document.createElement('link');
 fontLink.href = 'https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap';
@@ -16,5 +17,3 @@ globalStyles.innerHTML = `
   }
 `;
 document.head.appendChild(globalStyles);
-
-defineCustomElements();
