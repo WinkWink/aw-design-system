@@ -29,8 +29,8 @@
       "default": { "$value": "#e5e7eb", "$type": "color" }
     },
     "action": {
-      "primary": { "$value": "{color.pink.500}", "$type": "color" },
-      "primary-hover": { "$value": "{color.pink.700}", "$type": "color" }
+      "primary": { "$value": "{color.pink.700}", "$type": "color" },
+      "primary-hover": { "$value": "{color.pink.500}", "$type": "color" }
     },
     "focus": {
       "ring": { "$value": "#3b82f6", "$type": "color" }
@@ -48,5 +48,20 @@
     "sm": { "$value": "4px", "$type": "dimension" },
     "md": { "$value": "8px", "$type": "dimension" },
     "lg": { "$value": "12px", "$type": "dimension" }
+  },
+  "font": {
+    "family": {
+      "base": { "$value": "'Inter', system-ui, sans-serif", "$type": "fontFamily" }
+    },
+    "weight": {
+      "regular": { "$value": "400", "$type": "fontWeight" },
+      "medium": { "$value": "500", "$type": "fontWeight" },
+      "semibold": { "$value": "600", "$type": "fontWeight" }
+    },
+    "size": {
+      "sm": { "$value": "14px", "$type": "dimension" },
+      "md": { "$value": "16px", "$type": "dimension" },
+      "lg": { "$value": "18px", "$type": "dimension" }
+    }
   }
 }

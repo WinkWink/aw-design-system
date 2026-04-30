@@ -1,0 +1,30 @@
+import { Meta, Canvas, Controls } from '@storybook/addon-docs/blocks';
+import * as ModalStories from './awds-modal.stories';
+
+<Meta of={ModalStories} />
+
+# Modal
+
+The `awds-modal` component is a token-driven dialog used to display focused content or actions above the page.
+
+## Token usage
+
+This component consumes Figma-exported CSS variables:
+
+- `--surface-default`
+- `--surface-overlay`
+- `--text-default`
+- `--border-default`
+- `--focus-ring`
+- `--space-16`
+- `--space-24`
+- `--radius-lg`
+- `--shadow-lg`
+
+## Example
+
+<Canvas of={ModalStories.Primary} />
+
+## Controls
+
+<Controls of={ModalStories.Primary} />

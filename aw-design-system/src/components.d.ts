@@ -66,6 +66,20 @@ export namespace Components {
          */
         "value": string;
     }
+    interface AwdsModal {
+        "close": () => Promise<void>;
+        /**
+          * Modal heading
+          * @default 'Modal title'
+         */
+        "heading": string;
+        /**
+          * Modal open state
+          * @default false
+         */
+        "open": boolean;
+        "show": () => Promise<void>;
+    }
     interface MyComponent {
         /**
           * The first name
@@ -106,6 +120,12 @@ declare global {
         prototype: HTMLAwdsCheckboxElement;
         new (): HTMLAwdsCheckboxElement;
     };
+    interface HTMLAwdsModalElement extends Components.AwdsModal, HTMLStencilElement {
+    }
+    var HTMLAwdsModalElement: {
+        prototype: HTMLAwdsModalElement;
+        new (): HTMLAwdsModalElement;
+    };
     interface HTMLMyComponentElement extends Components.MyComponent, HTMLStencilElement {
     }
     var HTMLMyComponentElement: {
@@ -117,6 +137,7 @@ declare global {
         "awds-accordion-item": HTMLAwdsAccordionItemElement;
         "awds-button": HTMLAwdsButtonElement;
         "awds-checkbox": HTMLAwdsCheckboxElement;
+        "awds-modal": HTMLAwdsModalElement;
         "my-component": HTMLMyComponentElement;
     }
 }
@@ -183,6 +204,18 @@ declare namespace LocalJSX {
          */
         "value"?: string;
     }
+    interface AwdsModal {
+        /**
+          * Modal heading
+          * @default 'Modal title'
+         */
+        "heading"?: string;
+        /**
+          * Modal open state
+          * @default false
+         */
+        "open"?: boolean;
+    }
     interface MyComponent {
         /**
           * The first name
@@ -215,6 +248,10 @@ declare namespace LocalJSX {
         "checked": boolean;
         "disabled": boolean;
     }
+    interface AwdsModalAttributes {
+        "open": boolean;
+        "heading": string;
+    }
     interface MyComponentAttributes {
         "first": string;
         "middle": string;
@@ -226,6 +263,7 @@ declare namespace LocalJSX {
         "awds-accordion-item": Omit<AwdsAccordionItem, keyof AwdsAccordionItemAttributes> & { [K in keyof AwdsAccordionItem & keyof AwdsAccordionItemAttributes]?: AwdsAccordionItem[K] } & { [K in keyof AwdsAccordionItem & keyof AwdsAccordionItemAttributes as `attr:${K}`]?: AwdsAccordionItemAttributes[K] } & { [K in keyof AwdsAccordionItem & keyof AwdsAccordionItemAttributes as `prop:${K}`]?: AwdsAccordionItem[K] } & OneOf<"heading", AwdsAccordionItem["heading"], AwdsAccordionItemAttributes["heading"]>;
         "awds-button": Omit<AwdsButton, keyof AwdsButtonAttributes> & { [K in keyof AwdsButton & keyof AwdsButtonAttributes]?: AwdsButton[K] } & { [K in keyof AwdsButton & keyof AwdsButtonAttributes as `attr:${K}`]?: AwdsButtonAttributes[K] } & { [K in keyof AwdsButton & keyof AwdsButtonAttributes as `prop:${K}`]?: AwdsButton[K] };
         "awds-checkbox": Omit<AwdsCheckbox, keyof AwdsCheckboxAttributes> & { [K in keyof AwdsCheckbox & keyof AwdsCheckboxAttributes]?: AwdsCheckbox[K] } & { [K in keyof AwdsCheckbox & keyof AwdsCheckboxAttributes as `attr:${K}`]?: AwdsCheckboxAttributes[K] } & { [K in keyof AwdsCheckbox & keyof AwdsCheckboxAttributes as `prop:${K}`]?: AwdsCheckbox[K] };
+        "awds-modal": Omit<AwdsModal, keyof AwdsModalAttributes> & { [K in keyof AwdsModal & keyof AwdsModalAttributes]?: AwdsModal[K] } & { [K in keyof AwdsModal & keyof AwdsModalAttributes as `attr:${K}`]?: AwdsModalAttributes[K] } & { [K in keyof AwdsModal & keyof AwdsModalAttributes as `prop:${K}`]?: AwdsModal[K] };
         "my-component": Omit<MyComponent, keyof MyComponentAttributes> & { [K in keyof MyComponent & keyof MyComponentAttributes]?: MyComponent[K] } & { [K in keyof MyComponent & keyof MyComponentAttributes as `attr:${K}`]?: MyComponentAttributes[K] } & { [K in keyof MyComponent & keyof MyComponentAttributes as `prop:${K}`]?: MyComponent[K] };
     }
 }
@@ -237,6 +275,7 @@ declare module "@stencil/core" {
             "awds-accordion-item": LocalJSX.IntrinsicElements["awds-accordion-item"] & JSXBase.HTMLAttributes<HTMLAwdsAccordionItemElement>;
             "awds-button": LocalJSX.IntrinsicElements["awds-button"] & JSXBase.HTMLAttributes<HTMLAwdsButtonElement>;
             "awds-checkbox": LocalJSX.IntrinsicElements["awds-checkbox"] & JSXBase.HTMLAttributes<HTMLAwdsCheckboxElement>;
+            "awds-modal": LocalJSX.IntrinsicElements["awds-modal"] & JSXBase.HTMLAttributes<HTMLAwdsModalElement>;
             "my-component": LocalJSX.IntrinsicElements["my-component"] & JSXBase.HTMLAttributes<HTMLMyComponentElement>;
         }
     }

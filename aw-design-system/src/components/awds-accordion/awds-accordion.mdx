@@ -1,0 +1,36 @@
+import { Meta, Canvas, Controls } from '@storybook/addon-docs/blocks';
+import * as AccordionStories from './awds-accordion.stories';
+
+<Meta of={AccordionStories} />
+
+# Accordion
+
+The `awds-accordion` component is a token-driven container used to group expandable accordion items.
+
+## Token usage
+
+This component consumes Figma-exported CSS variables:
+
+- `--surface-default`
+- `--text-default`
+- `--border-default`
+- `--focus-ring`
+- `--space-12`
+- `--space-16`
+- `--radius-md`
+
+## Example
+
+<Canvas of={AccordionStories.Primary} />
+
+## Multiple open
+
+<Canvas of={AccordionStories.MultipleOpen} />
+
+## Long content
+
+<Canvas of={AccordionStories.WithLongContent} />
+
+## Controls
+
+<Controls of={AccordionStories.Primary} />
