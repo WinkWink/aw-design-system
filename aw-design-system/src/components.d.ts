@@ -80,6 +80,18 @@ export namespace Components {
         "open": boolean;
         "show": () => Promise<void>;
     }
+    interface AwdsSideDrawer {
+        "open": () => Promise<void>;
+        "opened": boolean;
+        "title": string;
+    }
+    interface AwdsSpinner {
+    }
+    interface AwdsStockFinder {
+    }
+    interface AwdsStockPrice {
+        "stockSymbol": string;
+    }
     interface MyComponent {
         /**
           * The first name
@@ -94,6 +106,10 @@ export namespace Components {
          */
         "middle"?: string;
     }
+}
+export interface AwdsStockFinderCustomEvent<T> extends CustomEvent<T> {
+    detail: T;
+    target: HTMLAwdsStockFinderElement;
 }
 declare global {
     interface HTMLAwdsAccordionElement extends Components.AwdsAccordion, HTMLStencilElement {
@@ -126,6 +142,41 @@ declare global {
         prototype: HTMLAwdsModalElement;
         new (): HTMLAwdsModalElement;
     };
+    interface HTMLAwdsSideDrawerElement extends Components.AwdsSideDrawer, HTMLStencilElement {
+    }
+    var HTMLAwdsSideDrawerElement: {
+        prototype: HTMLAwdsSideDrawerElement;
+        new (): HTMLAwdsSideDrawerElement;
+    };
+    interface HTMLAwdsSpinnerElement extends Components.AwdsSpinner, HTMLStencilElement {
+    }
+    var HTMLAwdsSpinnerElement: {
+        prototype: HTMLAwdsSpinnerElement;
+        new (): HTMLAwdsSpinnerElement;
+    };
+    interface HTMLAwdsStockFinderElementEventMap {
+        "awSymbolSelected": string;
+    }
+    interface HTMLAwdsStockFinderElement extends Components.AwdsStockFinder, HTMLStencilElement {
+        addEventListener<K extends keyof HTMLAwdsStockFinderElementEventMap>(type: K, listener: (this: HTMLAwdsStockFinderElement, ev: AwdsStockFinderCustomEvent<HTMLAwdsStockFinderElementEventMap[K]>) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | AddEventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLAwdsStockFinderElementEventMap>(type: K, listener: (this: HTMLAwdsStockFinderElement, ev: AwdsStockFinderCustomEvent<HTMLAwdsStockFinderElementEventMap[K]>) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | EventListenerOptions): void;
+    }
+    var HTMLAwdsStockFinderElement: {
+        prototype: HTMLAwdsStockFinderElement;
+        new (): HTMLAwdsStockFinderElement;
+    };
+    interface HTMLAwdsStockPriceElement extends Components.AwdsStockPrice, HTMLStencilElement {
+    }
+    var HTMLAwdsStockPriceElement: {
+        prototype: HTMLAwdsStockPriceElement;
+        new (): HTMLAwdsStockPriceElement;
+    };
     interface HTMLMyComponentElement extends Components.MyComponent, HTMLStencilElement {
     }
     var HTMLMyComponentElement: {
@@ -138,6 +189,10 @@ declare global {
         "awds-button": HTMLAwdsButtonElement;
         "awds-checkbox": HTMLAwdsCheckboxElement;
         "awds-modal": HTMLAwdsModalElement;
+        "awds-side-drawer": HTMLAwdsSideDrawerElement;
+        "awds-spinner": HTMLAwdsSpinnerElement;
+        "awds-stock-finder": HTMLAwdsStockFinderElement;
+        "awds-stock-price": HTMLAwdsStockPriceElement;
         "my-component": HTMLMyComponentElement;
     }
 }
@@ -216,6 +271,18 @@ declare namespace LocalJSX {
          */
         "open"?: boolean;
     }
+    interface AwdsSideDrawer {
+        "opened"?: boolean;
+        "title"?: string;
+    }
+    interface AwdsSpinner {
+    }
+    interface AwdsStockFinder {
+        "onAwSymbolSelected"?: (event: AwdsStockFinderCustomEvent<string>) => void;
+    }
+    interface AwdsStockPrice {
+        "stockSymbol"?: string;
+    }
     interface MyComponent {
         /**
           * The first name
@@ -252,6 +319,13 @@ declare namespace LocalJSX {
         "open": boolean;
         "heading": string;
     }
+    interface AwdsSideDrawerAttributes {
+        "title": string;
+        "opened": boolean;
+    }
+    interface AwdsStockPriceAttributes {
+        "stockSymbol": string;
+    }
     interface MyComponentAttributes {
         "first": string;
         "middle": string;
@@ -264,6 +338,10 @@ declare namespace LocalJSX {
         "awds-button": Omit<AwdsButton, keyof AwdsButtonAttributes> & { [K in keyof AwdsButton & keyof AwdsButtonAttributes]?: AwdsButton[K] } & { [K in keyof AwdsButton & keyof AwdsButtonAttributes as `attr:${K}`]?: AwdsButtonAttributes[K] } & { [K in keyof AwdsButton & keyof AwdsButtonAttributes as `prop:${K}`]?: AwdsButton[K] };
         "awds-checkbox": Omit<AwdsCheckbox, keyof AwdsCheckboxAttributes> & { [K in keyof AwdsCheckbox & keyof AwdsCheckboxAttributes]?: AwdsCheckbox[K] } & { [K in keyof AwdsCheckbox & keyof AwdsCheckboxAttributes as `attr:${K}`]?: AwdsCheckboxAttributes[K] } & { [K in keyof AwdsCheckbox & keyof AwdsCheckboxAttributes as `prop:${K}`]?: AwdsCheckbox[K] };
         "awds-modal": Omit<AwdsModal, keyof AwdsModalAttributes> & { [K in keyof AwdsModal & keyof AwdsModalAttributes]?: AwdsModal[K] } & { [K in keyof AwdsModal & keyof AwdsModalAttributes as `attr:${K}`]?: AwdsModalAttributes[K] } & { [K in keyof AwdsModal & keyof AwdsModalAttributes as `prop:${K}`]?: AwdsModal[K] };
+        "awds-side-drawer": Omit<AwdsSideDrawer, keyof AwdsSideDrawerAttributes> & { [K in keyof AwdsSideDrawer & keyof AwdsSideDrawerAttributes]?: AwdsSideDrawer[K] } & { [K in keyof AwdsSideDrawer & keyof AwdsSideDrawerAttributes as `attr:${K}`]?: AwdsSideDrawerAttributes[K] } & { [K in keyof AwdsSideDrawer & keyof AwdsSideDrawerAttributes as `prop:${K}`]?: AwdsSideDrawer[K] };
+        "awds-spinner": AwdsSpinner;
+        "awds-stock-finder": AwdsStockFinder;
+        "awds-stock-price": Omit<AwdsStockPrice, keyof AwdsStockPriceAttributes> & { [K in keyof AwdsStockPrice & keyof AwdsStockPriceAttributes]?: AwdsStockPrice[K] } & { [K in keyof AwdsStockPrice & keyof AwdsStockPriceAttributes as `attr:${K}`]?: AwdsStockPriceAttributes[K] } & { [K in keyof AwdsStockPrice & keyof AwdsStockPriceAttributes as `prop:${K}`]?: AwdsStockPrice[K] };
         "my-component": Omit<MyComponent, keyof MyComponentAttributes> & { [K in keyof MyComponent & keyof MyComponentAttributes]?: MyComponent[K] } & { [K in keyof MyComponent & keyof MyComponentAttributes as `attr:${K}`]?: MyComponentAttributes[K] } & { [K in keyof MyComponent & keyof MyComponentAttributes as `prop:${K}`]?: MyComponent[K] };
     }
 }
@@ -276,6 +354,10 @@ declare module "@stencil/core" {
             "awds-button": LocalJSX.IntrinsicElements["awds-button"] & JSXBase.HTMLAttributes<HTMLAwdsButtonElement>;
             "awds-checkbox": LocalJSX.IntrinsicElements["awds-checkbox"] & JSXBase.HTMLAttributes<HTMLAwdsCheckboxElement>;
             "awds-modal": LocalJSX.IntrinsicElements["awds-modal"] & JSXBase.HTMLAttributes<HTMLAwdsModalElement>;
+            "awds-side-drawer": LocalJSX.IntrinsicElements["awds-side-drawer"] & JSXBase.HTMLAttributes<HTMLAwdsSideDrawerElement>;
+            "awds-spinner": LocalJSX.IntrinsicElements["awds-spinner"] & JSXBase.HTMLAttributes<HTMLAwdsSpinnerElement>;
+            "awds-stock-finder": LocalJSX.IntrinsicElements["awds-stock-finder"] & JSXBase.HTMLAttributes<HTMLAwdsStockFinderElement>;
+            "awds-stock-price": LocalJSX.IntrinsicElements["awds-stock-price"] & JSXBase.HTMLAttributes<HTMLAwdsStockPriceElement>;
             "my-component": LocalJSX.IntrinsicElements["my-component"] & JSXBase.HTMLAttributes<HTMLMyComponentElement>;
         }
     }

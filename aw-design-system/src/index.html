@@ -4,11 +4,55 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=5.0" />
     <title>Stencil Component Starter</title>
+    <style>
+      .side-nav ul{
+        list-style: none;
+        display: flex;
+        flex-direction: column;
+        gap: 1rem;
+        margin-top: 2rem;
+      }
 
+      .side-nav ul li a{
+        color: black;
+        text-decoration: none;
+        padding: 1rem;
+      }
+    </style>
     <script type="module" src="/build/aw-design-system.esm.js"></script>
     <script nomodule src="/build/aw-design-system.js"></script>
   </head>
   <body>
-    <my-component first="Stencil" middle="'Don't call me a framework'" last="JS"></my-component>
+    <!-- <button id="open-button">Open Drawer</button> -->
+    <awds-side-drawer title="Main Menu">
+      <nav class="side-nav">
+        <ul>
+          <li><a href="">link</a></li>
+          <li><a href="">another link</a></li>
+          <li><a href="">another link</a></li>
+        </ul>
+      </nav>
+    </awds-side-drawer>
+
+    <awds-stock-price stock-symbol="AAPL"></awds-stock-price>
+    <awds-stock-finder></awds-stock-finder>
+
+    <script>
+      const sideDrawer = document.querySelector('awds-side-drawer');
+      const openButton = document.querySelector('#open-button');
+      
+      openButton.addEventListener('click', () => {
+        if(!sideDrawer.opened){
+          sideDrawer.open();
+        }
+      });
+    </script>
+    <!-- <script>
+      const stockFinderEl = document.querySelector('awds-stock-finder');
+
+      stockFinderEl.addEventListener('awSymbolSelected', (event) => {
+        stockPrice.stockSymbol = event.detail;
+      });
+    </script> -->
   </body>
 </html>
